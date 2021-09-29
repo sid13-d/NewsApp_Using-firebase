@@ -1,10 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-  </head>
-  <body></body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <style>
+    body {
+      background-color: #ebebeb;
+    }
+
+    .col-sm-8 {
+      margin: 0px;
+      height: 50vh;
+      padding: 0px;
+    }
+
+    .col-sm-4 {
+      margin: 0px;
+      height: 50vh;
+      padding: 10px;
+      background-color: white;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    .carouselCard {
+      width: 100%;
+      height: 50vh;
+
+    }
+
+    .cardImgOverlay {
+      position: absolute;
+      bottom: 20px;
+      left: 20px
+    }
+
+    .trending-news-conatiner {
+      height: 100%;
+      margin: 0px;
+    }
+
+
+    .trending-new-card {
+      margin: 5px;
+
+      height: 100px;
+      width: 90%;
+      background-color: white;
+      display: flex;
+      flex-direction: row;
+
+    }
+
+    .trending-news-img {
+      height: 100px;
+      width: 100px;
+      margin-right: 10px;
+    }
+
+    .news-subtitles {
+      margin: 2px;
+      font-size: 15px;
+      opacity: 0.7;
+    }
+
+    .news-heading {
+      margin: 2px;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .news-date {
+      margin: 2px;
+      font-size: 15px;
+      opacity: 0.5;
+    }
+
+    .trending-new-info {}
+  </style>
+</head>
+
+<body>
+  <!-- navigation bar -->
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <form class="navbar-form navbar-right" action="/action_page.php">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <!-- <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol> -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="card img-fluid carouselCard">
+                <img class="card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                  alt="Card image" style="width:100%; height: 50vh;">
+                <div class="cardImgOverlay">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">Some example text some example text. Some example text some example text. Some
+                    example text some example text. Some example text some example text.</p>
+                  <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card img-fluid carouselCard">
+                <img class="card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                  alt="Card image" style="width:100%; height: 50vh;">
+                <div class="cardImgOverlay">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">Some example text some example text. Some example text some example text. Some
+                    example text some example text. Some example text some example text.</p>
+                  <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card img-fluid carouselCard">
+                <img class="card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                  alt="Card image" style="width:100%; height: 50vh;">
+                <div class="cardImgOverlay">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">Some example text some example text. Some example text some example text. Some
+                    example text some example text. Some example text some example text.</p>
+                  <a href="#" class="btn btn-primary">See Profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a> -->
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="trending-news-conatiner">
+          <h1 style="margin:0px">Trending news</h1>
+          <div class="trending-new-card">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+              class="trending-news-img" alt="">
+            <div class="trending-new-info">
+              <h3 class="news-subtitles">subtitles</h3>
+              <h2 class="news-heading">heading</h2>
+              <p class="news-date">date</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
