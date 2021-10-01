@@ -1,298 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Latest compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- font awesome cdn link -->
-    <link
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <style>
-      body {
-        background-color: #ebebeb;
-      }
+  <!-- font awesome cdn link -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
 
-      /* .container {
+  <style>
+    body {
+      background-color: #ebebeb;
+    }
+
+    /* .container {
         padding: 0px !important;
         margin: 0px !important;
       } */
+    ::-webkit-scrollbar {
+      width: 2px;
+      height: 5px;
+    }
 
-      #searchInput {
-        display: none;
-      }
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
 
-      #searchIcon {
-        display: block;
-      }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
 
-      #closeIcon {
-        display: none;
-      }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
 
-      .col-sm-8 {
-        margin: 0px;
-        height: 50vh;
-        padding: 0px;
-      }
+    #searchInput {
+      display: none;
 
-      .col-sm-4 {
-        margin: 0px;
-        height: 50vh;
-        padding: 10px;
-        background-color: white;
-        border-bottom-right-radius: 10px;
-        border-top-right-radius: 10px;
-      }
+    }
 
-      .carouselCard {
-        width: 100%;
-        height: 50vh;
-      }
+    #searchIcon {
+      display: block;
+      color: white;
+    }
 
-      .cardImgOverlay {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-      }
+    #closeIcon {
+      display: none;
+    }
 
-      .trending-news-conatiner {
-        height: 100%;
-        margin: 0px;
-      }
+    .col-sm-8 {
+      margin: 0px;
+      height: 50vh;
+      padding: 0px;
+    }
 
-      .trending-new-card {
-        margin: 5px;
+    .col-sm-4 {
+      margin: 0px;
+      height: 50vh;
+      padding: 10px;
+      background-color: white;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px;
+    }
 
-        height: 8px;
-        width: 90%;
-        background-color: white;
-        display: flex;
-        flex-direction: row;
-      }
+    .carouselCard {
+      width: 100%;
+      height: 50vh;
+    }
 
-      .trending-news-img {
-        height: 80px;
-        width: 80px;
-        border-radius: 5px;
-        margin-right: 10px;
-      }
+    .cardImgOverlay {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
 
-      .news-subtitles {
-        margin: 2px;
-        font-size: 15px;
-        opacity: 0.7;
-        color: #000;
-      }
+    .trending-news-conatiner {
+      height: 100%;
+      margin: 0px;
+    }
 
-      .news-heading {
-        margin: 2px;
-        font-size: 17px;
-        font-weight: 900;
-        color: #000;
-      }
+    .trending-new-card {
+      margin: 5px;
 
-      .news-date {
-        margin: 2px;
-        font-size: 15px;
-        opacity: 0.5;
-        color: #000;
-      }
+      height: 8px;
+      width: 90%;
+      background-color: white;
+      display: flex;
+      flex-direction: row;
+    }
 
-      .trending-new-info {
-      }
-      .category-container {
-        display: flex;
-        flex-direction: row;
-      }
-      .category-card {
-        display: flex;
-        flex-direction: column;
-        width: 250px;
-        padding: 10px;
-        border-radius: 10px;
-        margin-right: 20px;
-        /* height: 20px; */
-        background-color: white;
-      }
-      .category-info {
-        display: flex;
-        flex-direction: column;
-      }
-      .category-img {
-        width: 100%;
-        height: 150px;
-      }
-      .category-title {
-        font-size: 20px;
-        font-weight: bold;
-      }
-      .category-description {
-        height: 85px;
-        /* display: flex; */
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 15px;
-        font-weight: 500;
-      }
-      .read-more-btn {
-        height: 30px;
-        width: 50%;
-        border-radius: 8px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
+    .trending-news-img {
+      height: 80px;
+      width: 80px;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
 
-        background-color: #6231db;
-      }
-    </style>
-  </head>
+    .news-subtitles {
+      margin: 2px;
+      font-size: 15px;
+      opacity: 0.7;
+      color: #000;
+    }
 
-  <body>
-    <!-- navigation bar -->
-    <nav class="navbar navbar-default" style="background-color: #fff">
-      <div class="container">
-        <div class="navbar-header">
-          <a
-            class="navbar-brand"
-            href="./home.html"
-            style="color: #000; font-weight: bold"
-            >WebSiteName</a
-          >
-        </div>
-        <form class="navbar-form navbar-right" action="">
-          <div class="input-group">
-            <input
-              type="text"
-              class="form-control"
-              id="searchInput"
-              placeholder="Search"
-            />
-            <div class="input-group-btn">
-              <button
-                class="btn btn-default"
-                type="button"
-                onClick="showSearch()"
-              >
-                <i id="searchIcon" class="fa fa-search"></i>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </nav>
-    <!-- top containr -->
+    .news-heading {
+      margin: 2px;
+      font-size: 17px;
+      font-weight: 900;
+      color: #000;
+    }
+
+    .news-date {
+      margin: 2px;
+      font-size: 15px;
+      opacity: 0.5;
+      color: #000;
+    }
+
+    .trending-new-info {}
+
+    .category-container {
+      /* align-items: stretch; */
+      display: flex;
+      flex-direction: row;
+      white-space: nowrap;
+      overflow: hidden;
+      /* width: 100%; */
+      overflow-x: scroll;
+
+    }
+
+    .category-card {
+      display: inline-block;
+      flex-direction: column;
+      width: 200px;
+      padding: 10px;
+      border-radius: 10px;
+      margin-right: 20px;
+      /* height: 20px; */
+      flex-grow: 0;
+      background-color: white;
+
+    }
+
+    .category-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .category-img {
+      width: 100%;
+      height: 150px;
+    }
+
+    .category-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .category-description {
+      height: 85px;
+      /* display: flex; */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .read-more-btn {
+      height: 30px;
+      width: 50%;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+
+      background-color: #6231db;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- navigation bar -->
+  <nav class="navbar navbar-default" style="background-color: #fff">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-8">
-          <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <!-- <ol class="carousel-indicators">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="./home.html" style="color: #000; font-weight: bold">WebSiteName</a>
+      </div>
+      <form class="navbar-form navbar-right" action="">
+        <div class="input-group">
+          <input type="text" class="form-control" id="searchInput" placeholder="Search" />
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="button" style="background-color: #000;" onClick="showSearch()">
+              <i id="searchIcon" class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <!-- top containr -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <!-- <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
           </ol> -->
-            <ol class="carousel-indicators">
-              <li
-                data-target="#myCarousel"
-                data-slide-to="0"
-                class="active"
-              ></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
 
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <div class="card img-fluid carouselCard">
-                  <img
-                    class="card-img-top"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
-                    alt="Card image"
-                    style="width: 100%; height: 50vh"
-                  />
-                  <div class="cardImgOverlay">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">
-                      Some example text some example text. Some example text
-                      some example text. Some example text some example text.
-                      Some example text some example text.
-                    </p>
-                    <a href="./details.html?id=12345" class="btn btn-primary"
-                      >See Profile</a
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="item">
-                <div class="card img-fluid carouselCard">
-                  <img
-                    class="card-img-top"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
-                    alt="Card image"
-                    style="width: 100%; height: 50vh"
-                  />
-                  <div class="cardImgOverlay">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">
-                      Some example text some example text. Some example text
-                      some example text. Some example text some example text.
-                      Some example text some example text.
-                    </p>
-                    <a href="./details.html?id=1245" class="btn btn-primary"
-                      >See Profile</a
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <div class="item">
-                <div class="card img-fluid carouselCard">
-                  <img
-                    class="card-img-top"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
-                    alt="Card image"
-                    style="width: 100%; height: 50vh"
-                  />
-                  <div class="cardImgOverlay">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">
-                      Some example text some example text. Some example text
-                      some example text. Some example text some example text.
-                      Some example text some example text.
-                    </p>
-                    <a href="./details.html?id=1245" class="btn btn-primary"
-                      >See Profile</a
-                    >
-                  </div>
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <div class="card img-fluid carouselCard">
+                <img class="card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                  alt="Card image" style="width: 100%; height: 50vh" />
+                <div class="cardImgOverlay">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">
+                    Some example text some example text. Some example text
+                    some example text. Some example text some example text.
+                    Some example text some example text.
+                  </p>
+                  <a href="./details.html?id=12345" class="btn btn-primary">See Profile</a>
                 </div>
               </div>
             </div>
 
-            <!-- Left and right controls -->
-            <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <div class="item">
+              <div class="card img-fluid carouselCard">
+                <img class="card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                  alt="Card image" style="width: 100%; height: 50vh" />
+                <div class="cardImgOverlay">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">
+                    Some example text some example text. Some example text
+                    some example text. Some example text some example text.
+                    Some example text some example text.
+                  </p>
+                  <a href="./details.html?id=1245" class="btn btn-primary">See Profile</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="item">
+              <div class="card img-fluid carouselCard">
+                <img class="card-img-top"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                  alt="Card image" style="width: 100%; height: 50vh" />
+                <div class="cardImgOverlay">
+                  <h4 class="card-title">John Doe</h4>
+                  <p class="card-text">
+                    Some example text some example text. Some example text
+                    some example text. Some example text some example text.
+                    Some example text some example text.
+                  </p>
+                  <a href="./details.html?id=1245" class="btn btn-primary">See Profile</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Left and right controls -->
+          <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
           </a>
@@ -300,96 +297,145 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
           </a> -->
-          </div>
         </div>
-        <div class="col-sm-4">
-          <div class="trending-news-conatiner">
-            <h1 style="margin: 0px">Trending news</h1>
-            <a href="./details.html?id=1244" style="text-decoration: none">
-              <div class="trending-new-card">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
-                  class="trending-news-img"
-                  alt=""
-                />
-                <div class="trending-new-info">
-                  <h3 class="news-subtitles">subtitles</h3>
-                  <h2 class="news-heading">heading</h2>
-                  <p class="news-date">date</p>
-                </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="trending-news-conatiner">
+          <h1 style="margin: 0px">Trending news</h1>
+          <a href="./details.html?id=1244" style="text-decoration: none">
+            <div class="trending-new-card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                class="trending-news-img" alt="" />
+              <div class="trending-new-info">
+                <h3 class="news-subtitles">subtitles</h3>
+                <h2 class="news-heading">heading</h2>
+                <p class="news-date">date</p>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- businerss-news-container -->
-    <div
-      class="container"
-      style="margin: 0px !important; padding: 40px !important"
-    >
-      <h1 style="font-size: 35px; font-weight: bold">Business</h1>
-      <div class="category-container">
-        <div class="category-card">
-          <img
-            class="category-img"
-            src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
-            alt="Los Angeles"
-          />
-          <div class="category-info">
-            <span class="category-title">Elon Musk</span>
-            <span class="category-description"
-              >Lorem Ipsum doesn’t exist because people think the content is
-              meaningless window dressing, only there to be decorated designers
-              who can’t be bothered to read. Lorem Ipsum exists because words
-              are powerful. If you fill up your page with draft copy about your
-              client’s business, they will read it. They will comment on it.
-              They will be inexorably drawn to it.
-            </span>
-            <a href="./details.html?id=1234" style="text-decoration: none">
-              <div class="read-more-btn">Read more</div>
-            </a>
-          </div>
-        </div>
-        <div class="category-card">
-          <img
-            class="category-img"
-            src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
-            alt="Los Angeles"
-          />
-          <div class="category-info">
-            <span class="category-title">Elon Musk</span>
-            <span class="category-description"
-              >Lorem Ipsum doesn’t exist because people think the content is
-              meaningless window dressing, only there to be decorated designers
-              who can’t be bothered to read. Lorem Ipsum exists because words
-              are powerful. If you fill up your page with draft copy about your
-              client’s business, they will read it. They will comment on it.
-              They will be inexorably drawn to it.
-            </span>
-            <a href="./details.html?id=1234" style="text-decoration: none">
-              <div class="read-more-btn">Read more</div>
-            </a>
-          </div>
+  <!-- businerss-news-container -->
+  <div class="container">
+    <h1 style="font-size: 35px; font-weight: bold">Business</h1>
+    <class class="category-container">
+      <div class="category-card">
+        <img class="category-img" src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
+          alt="Los Angeles" />
+        <div class="category-info">
+          <span class="category-title">Elon Musk</span>
+          <span class="category-description">Lorem Ipsum doesn’t exist because people think the content is
+            meaningless window dressing, only there to be decorated designers
+            who can’t be bothered to read. Lorem Ipsum exists because words
+            are powerful. If you fill up your page with draft copy about your
+            client’s business, they will read it. They will comment on it.
+            They will be inexorably drawn to it.
+          </span>
+          <a href="./details.html?id=1234" style="text-decoration: none">
+            <div class="read-more-btn">Read more</div>
+          </a>
         </div>
       </div>
-    </div>
+      <div class="category-card">
+        <img class="category-img" src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
+          alt="Los Angeles" />
+        <div class="category-info">
+          <span class="category-title">Elon Musk</span>
+          <span class="category-description">Lorem Ipsum doesn’t exist because people think the content is
+            meaningless window dressing, only there to be decorated designers
+            who can’t be bothered to read. Lorem Ipsum exists because words
+            are powerful. If you fill up your page with draft copy about your
+            client’s business, they will read it. They will comment on it.
+            They will be inexorably drawn to it.
+          </span>
+          <a href="./details.html?id=1234" style="text-decoration: none">
+            <div class="read-more-btn">Read more</div>
+          </a>
+        </div>
+      </div>
 
-    <!-- covid container -->
+      <div class="category-card">
+        <img class="category-img" src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
+          alt="Los Angeles" />
+        <div class="category-info">
+          <span class="category-title">Elon Musk</span>
+          <span class="category-description">Lorem Ipsum doesn’t exist because people think the content is
+            meaningless window dressing, only there to be decorated designers
+            who can’t be bothered to read. Lorem Ipsum exists because words
+            are powerful. If you fill up your page with draft copy about your
+            client’s business, they will read it. They will comment on it.
+            They will be inexorably drawn to it.
+          </span>
+          <a href="./details.html?id=1234" style="text-decoration: none">
+            <div class="read-more-btn">Read more</div>
+          </a>
+        </div>
+      </div>
 
-    <script>
-      function showSearch() {
-        if (document.getElementById("searchIcon").className == "fa fa-times") {
-          document.getElementById("searchIcon").className = "fa fa-search";
-          document.getElementById("searchInput").style.display = "none";
-          return;
-        } else {
-          document.getElementById("searchIcon").className = "fa fa-times";
-          document.getElementById("searchInput").style.display = "block";
-          return;
-        }
-      }
-    </script>
-  </body>
+      <div class="category-card">
+        <img class="category-img" src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
+          alt="Los Angeles" />
+        <div class="category-info">
+          <span class="category-title">Elon Musk</span>
+          <span class="category-description">Lorem Ipsum doesn’t exist because people think the content is
+            meaningless window dressing, only there to be decorated designers
+            who can’t be bothered to read. Lorem Ipsum exists because words
+            are powerful. If you fill up your page with draft copy about your
+            client’s business, they will read it. They will comment on it.
+            They will be inexorably drawn to it.
+          </span>
+          <a href="./details.html?id=1234" style="text-decoration: none">
+            <div class="read-more-btn">Read more</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img class="category-img" src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
+          alt="Los Angeles" />
+        <div class="category-info">
+          <span class="category-title">Elon Musk</span>
+          <span class="category-description">Lorem Ipsum doesn’t exist because people think the content is
+            meaningless window dressing, only there to be decorated designers
+            who can’t be bothered to read. Lorem Ipsum exists because words
+            are powerful. If you fill up your page with draft copy about your
+            client’s business, they will read it. They will comment on it.
+            They will be inexorably drawn to it.
+          </span>
+          <a href="./details.html?id=1234" style="text-decoration: none">
+            <div class="read-more-btn">Read more</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img class="category-img" src="https://colorlib.com/wp/wp-content/uploads/sites/2/spectr.jpg"
+          alt="Los Angeles" />
+        <div class="category-info">
+          <span class="category-title">Elon Musk</span>
+          <span class="category-description">Lorem Ipsum doesn’t exist because people think the content is
+            meaningless window dressing, only there to be decorated designers
+            who can’t be bothered to read. Lorem Ipsum exists because words
+            are powerful. If you fill up your page with draft copy about your
+            client’s business, they will read it. They will comment on it.
+            They will be inexorably drawn to it.
+          </span>
+          <a href="./details.html?id=1234" style="text-decoration: none">
+            <div class="read-more-btn">Read more</div>
+          </a>
+        </div>
+      </div>
+
+    </class>
+  </div>
+  </div>
+
+  <!-- covid container -->
+  <script src="./js/showSearch.js"></script>
+</body>
+
 </html>
