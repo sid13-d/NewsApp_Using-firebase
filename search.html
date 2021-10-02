@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- font awesome cdn link -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #f7f8f9;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+
+            height: 100vh;
+            width: 50%;
+        }
+
+        .search-result {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .search-results {
+
+            font-size: medium;
+            font-weight: bolder;
+        }
+
+        .middle-container {
+            display: inline-block;
+            flex-direction: column;
+            /* justify-content: center; */
+            /* justify-items: center; */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 1px 1px 3px darkgray;
+
+        }
+
+        .inner-element {
+            display: inline-block;
+            flex-direction: column;
+            justify-content: center;
+            justify-items: center;
+            background-color: white;
+
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .upper-element {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .heading-company {
+            display: flex;
+            padding: 2px;
+            /* margin: 4px; */
+            font-weight: bold;
+        }
+
+        .fields {
+            display: flex;
+            /* margin-top: -10px; */
+            padding: 0px;
+            font-weight: bold;
+            margin: 0px;
+            margin-bottom: 5px;
+        }
+
+        .inner-navigations {
+            display: flex;
+            flex-direction: row;
+            font-size: small;
+            font-weight: 100;
+            margin-bottom: 6px;
+        }
+
+        .news-description {
+            display: flex;
+            padding-top: 3px;
+            opacity: 0.5;
+        }
+
+        .show-more {
+            margin-top: 10px;
+        }
+
+        .result {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-style: none;
+            background-color: #000;
+            color: white;
+            padding: 5px;
+            height: 25px;
+            width: 100px;
+            border-radius: 3px;
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- nav bar -->
+    <nav class="navbar navbar-default" style="background-color: #fff">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./home.html" style="color: #000; font-weight: bold">WebSiteName</a>
+            </div>
+            <form class="navbar-form navbar-right" action="">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="background-color: #000"
+                            onClick="showSearch()">
+                            <i id="searchIcon" class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
+
+    <!-- main container -->
+    <div class="container">
+        <div class="search-result">
+            <h4 class="search-results">Search results: 4</h4>
+            <h4 class=" search-results">Srot by:</h4>
+        </div>
+        <div class=" middle-container">
+            <div class="inner-element">
+                <div class="upper-element">
+                    <h6 class="heading-company">Microsoft</h6>
+                    <span class="date">10:40 pm</span>
+                </div>
+                <h2 class="fields">Product-Designer</h2>
+                <div class="inner-navigations">
+                    <p style="margin:0px;"><i class="fa fa-map-marker" aria-hidden="true"
+                            style="margin-left: 4px; margin-right: 6px;"></i>Location
+                    </p>
+
+                    <p style="margin:0px;"><i class="fa fa-user" aria-hidden="true"
+                            style="margin-left: 9px; margin-right: 6px;"></i>Author
+                    </p>
+                </div>
+                <div class="news-description">
+                    <span>Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s</span>
+                </div>
+                <div class="show-more">
+                    <button class="result" type="submit">Read more
+
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class=" middle-container">
+            <div class="inner-element">
+                <div class="upper-element">
+                    <h6 class="heading-company">Microsoft</h6>
+                    <span class="date">10:40 pm</span>
+                </div>
+                <h2 class="fields">Product-Designer</h2>
+                <div class="inner-navigations">
+                    <p style="margin:0px;"><i class="fa fa-map-marker" aria-hidden="true"
+                            style="margin-left: 4px; margin-right: 6px;"></i>Location
+                    </p>
+
+                    <p style="margin:0px;"><i class="fa fa-user" aria-hidden="true"
+                            style="margin-left: 9px; margin-right: 6px;"></i>Author
+                    </p>
+                </div>
+                <div class="news-description">
+                    <span>Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s</span>
+                </div>
+                <div class="show-more">
+                    <button class="result" type="submit">Read more
+
+                    </button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class=" middle-container">
+            <div class="inner-element">
+                <div class="upper-element">
+                    <h6 class="heading-company">Microsoft</h6>
+                    <span class="date">10:40 pm</span>
+                </div>
+                <h2 class="fields">Product-Designer</h2>
+                <div class="inner-navigations">
+                    <p style="margin:0px;"><i class="fa fa-map-marker" aria-hidden="true"
+                            style="margin-left: 4px; margin-right: 6px;"></i>Location
+                    </p>
+
+                    <p style="margin:0px;"><i class="fa fa-user" aria-hidden="true"
+                            style="margin-left: 9px; margin-right: 6px;"></i>Author
+                    </p>
+                </div>
+                <div class="news-description">
+                    <span>Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy
+                        text ever since the 1500s</span>
+                </div>
+                <div class="show-more">
+                    <button class="result" type="submit">Read more
+
+                    </button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+
+</html>
