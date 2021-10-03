@@ -76,12 +76,13 @@
     .trending-news-conatiner {
       height: 100%;
       margin: 0px;
+
     }
 
     .trending-new-card {
       margin: 5px;
 
-      height: 8px;
+      /* height: 8px; */
       width: 90%;
       background-color: white;
       display: flex;
@@ -123,11 +124,11 @@
 <body>
   <!-- navigation bar -->
   <nav class="navbar navbar-default" style="background-color: #fff">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="./home.html" style="color: #000; font-weight: bold">WebSiteName</a>
+        <a class="navbar-brand" href="./home.html" style="color: #000; font-weight: bold">Pune Times</a>
       </div>
-      <form class="navbar-form navbar-right" action="">
+      <form class="navbar-form navbar-right" action="search.html">
         <div class="input-group">
           <input type="text" class="form-control" id="searchInput" placeholder="Search" />
           <div class="input-group-btn">
@@ -195,6 +196,20 @@
               </div>
             </div>
           </a>
+
+          <a href="./details.html?id=1244" style="text-decoration: none">
+            <div class="trending-new-card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
+                class="trending-news-img" alt="" />
+              <div class="trending-new-info">
+                <h3 class="news-subtitles">subtitles</h3>
+                <h2 class="news-heading">heading</h2>
+                <p class="news-date">date</p>
+              </div>
+            </div>
+          </a>
+
         </div>
       </div>
     </div>>
