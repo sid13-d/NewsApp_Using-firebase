@@ -1,324 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <!-- Latest compiled JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- font awesome cdn link -->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- font awesome cdn link -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #f7f8f9;
+      }
 
-  <style>
-    body {
-      background-color: #f7f8f9;
-    }
-
-    /* .container {
+      /* .container {
         padding: 0px !important;
         margin: 0px !important;
       } */
-    ::-webkit-scrollbar {
-      width: 0px;
-      height: 5px;
-    }
+      ::-webkit-scrollbar {
+        width: 0px;
+        height: 5px;
+      }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
+      /* Track */
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #888;
-    }
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+      }
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
 
-    #searchInput {
-      display: none;
-    }
+      #searchInput {
+        display: none;
+      }
 
-    #searchIcon {
-      display: block;
-      color: white;
-    }
+      #searchIcon {
+        display: block;
+        color: white;
+      }
 
-    #closeIcon {
-      display: none;
-    }
+      #closeIcon {
+        display: none;
+      }
 
-    .main {
-      display: flex;
-      flex-direction: row;
-      margin-left: 30px;
-      margin-right: 30px;
-    }
+      .main {
+        display: flex;
+        flex-direction: row;
+        margin-left: 30px;
+        margin-right: 30px;
+      }
 
-    .left-navigation {
-      width: 15%;
-      margin-top: 65px;
-      height: 100vh;
-      /* position: none; */
-    }
+      .left-navigation {
+        width: 15%;
+        margin-top: 65px;
+        height: 100vh;
+        /* position: none; */
+      }
 
-    .user-details {
-      background-color: white;
-      width: 100%;
-      height: 120px;
-      border-radius: 20px;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      /* box-shadow: 2px 2px 5px #888; */
-    }
+      .user-details {
+        background-color: white;
+        width: 100%;
+        height: 120px;
+        border-radius: 20px;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        /* box-shadow: 2px 2px 5px #888; */
+      }
 
-    .user-upper {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-    }
+      .user-upper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-    .user-img {
-      width: 50px;
-      height: 50px;
-      border-radius: 25px;
-    }
+      .user-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+      }
 
-    .user-name {
-      color: black;
-      font-size: 20px;
+      .user-name {
+        color: black;
+        font-size: 20px;
 
-      margin-top: 15px;
-      font-weight: bold;
-    }
+        margin-top: 15px;
+        font-weight: bold;
+      }
 
-    .category {
-      background-color: white;
-      height: 500px;
-      width: 100%;
-      padding: 10px;
-      border-radius: 20px;
-      margin-top: 30px;
-      /* box-shadow: 2px 1px 5px #888; */
-    }
+      .category {
+        background-color: white;
+        height: 500px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 20px;
+        margin-top: 30px;
+        /* box-shadow: 2px 1px 5px #888; */
+      }
 
-    .category-title {
-      font-weight: bold;
-      margin-bottom: 20px;
-      font-size: 25px;
-    }
+      .category-title {
+        font-weight: bold;
+        margin-bottom: 20px;
+        font-size: 25px;
+      }
 
-    .category-container {
-      display: flex;
-      flex-direction: column;
-    }
+      .category-container {
+        display: flex;
+        flex-direction: column;
+      }
 
-    .category-name {
-      font-size: 20px;
-      opacity: 0.7;
-      padding-bottom: 10px;
+      .category-name {
+        font-size: 20px;
+        opacity: 0.7;
+        padding-bottom: 10px;
+      }
 
-    }
+      .middle-container {
+        margin-left: 70px;
+        margin-right: 30px;
+        width: 55%;
+        height: 100vh;
+        overflow-y: scroll;
+      }
 
-    .middle-container {
-      margin-left: 70px;
-      margin-right: 30px;
-      width: 55%;
-      height: 100vh;
-      overflow-y: scroll;
-    }
+      .main-news-info {
+        width: 100%;
+        /* height: 60vh; */
+        background-color: white;
+        border-radius: 20px;
+      }
 
-    .main-news-info {
-      width: 100%;
-      /* height: 60vh; */
-      background-color: white;
-      border-radius: 20px;
-    }
+      .main-news-info-img {
+        width: 100%;
+        height: 50vh;
 
-    .main-news-info-img {
-      width: 100%;
-      height: 50vh;
+        border-radius: 20px;
+      }
 
-      border-radius: 20px;
-    }
+      .main-news-sub {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
 
-    .main-news-sub {
-      padding: 10px;
-      display: flex;
-      flex-direction: column;
-    }
+      .main-news-category-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
 
-    .main-news-category-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      margin-top: 10px;
-    }
+      .news-info-category {
+        background-color: #d5c6fb;
+        border-radius: 20px;
+        color: #6231db;
+        font-weight: bold;
+        min-width: 100px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-    .news-info-category {
-      background-color: #d5c6fb;
-      border-radius: 20px;
-      color: #6231db;
-      font-weight: bold;
-      min-width: 100px;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+      .date {
+        margin-right: 20px;
+        opacity: 0.5;
+      }
 
-    .date {
-      margin-right: 20px;
-      opacity: 0.5;
-    }
+      .location {
+        opacity: 0.7;
+      }
 
-    .location {
-      opacity: 0.7;
-    }
+      .main-info-title {
+        font-weight: bold;
+        font-size: 25px;
+      }
 
-    .main-info-title {
-      font-weight: bold;
-      font-size: 25px;
-    }
+      .news-video {
+        margin-top: 20px;
+      }
 
-    .news-video {
-      margin-top: 20px;
-    }
+      .video {
+        border-radius: 20px;
+        width: 30%;
+        height: 150px;
+        margin-right: 17.5px;
+      }
 
-    .video {
-      border-radius: 20px;
-      width: 30%;
-      height: 150px;
-      margin-right: 17.5px;
-    }
+      .right-container {
+        height: 100vh;
+        width: 23%;
+        overflow-y: scroll;
+      }
 
-    .right-container {
-      height: 100vh;
-      width: 23%;
-      overflow-y: scroll;
-    }
+      .ipl-news-container {
+        margin-top: 0px;
+      }
 
-    .ipl-news-container {
-      margin-top: 0px;
-    }
+      .card {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
 
-    .card {
-      background-color: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-    }
+      .team {
+        display: flex;
+        justify-content: space-between;
+      }
 
-    .team {
-      display: flex;
-      justify-content: space-between;
-    }
+      .team-logo {
+        width: 20px;
+        height: 20px;
+        margin-right: 20px;
+        border-radius: 10px;
+      }
 
-    .team-logo {
-      width: 20px;
-      height: 20px;
-      margin-right: 20px;
-      border-radius: 10px;
-    }
+      .team-name {
+        font-weight: bold;
+        font-size: 20px;
+      }
 
-    .team-name {
-      font-weight: bold;
-      font-size: 20px;
-    }
+      .team-score {
+      }
 
-    .team-score {}
+      .vs {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        opacity: 0.5;
+      }
 
-    .vs {
-      margin-top: 12px;
-      margin-bottom: 12px;
-      opacity: 0.5;
-    }
+      .short-description {
+        opacity: 0.5;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
 
-    .short-description {
-      opacity: 0.5;
-      margin-top: 15px;
-      margin-bottom: 15px;
-    }
+      .category-card {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+      }
 
-    .category-card {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      align-items: center;
-      margin-bottom: 10px;
-    }
+      .category-card-img {
+        margin-right: 10px;
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+      }
 
-    .category-card-img {
-      margin-right: 10px;
-      height: 50px;
-      width: 50px;
-      border-radius: 10px;
-    }
+      .category-card-title {
+        font-weight: bold;
+        font-size: 17px;
+      }
+    </style>
+  </head>
 
-    .category-card-title {
-      font-weight: bold;
-      font-size: 17px;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- navigation bar -->
-  <nav class="navbar navbar-default" style="background-color: #fff">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="./home.html" style="color: #000; font-weight: bold">Pune Times</a>
-      </div>
-      <form class="navbar-form navbar-right" action="search.html">
-        <div class="input-group">
-          <input type="text" class="form-control" id="searchInput" placeholder="Search" />
-          <div class="input-group-btn">
-            <button class="btn btn-default" type="button" style="background-color: #000" onClick="showSearch()">
-              <i id="searchIcon" class="fa fa-search"></i>
-            </button>
+  <body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-default" style="background-color: #fff">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a
+            class="navbar-brand"
+            href="./home.html"
+            style="color: #000; font-weight: bold"
+            >Pune Times</a
+          >
+        </div>
+        <form class="navbar-form navbar-right" action="search.html">
+          <div class="input-group">
+            <input
+              type="text"
+              class="form-control"
+              id="searchInput"
+              placeholder="Search"
+            />
+            <div class="input-group-btn">
+              <button
+                class="btn btn-default"
+                type="button"
+                style="background-color: #000"
+                onClick="showSearch()"
+              >
+                <i id="searchIcon" class="fa fa-search"></i>
+              </button>
+            </div>
           </div>
-        </div>
-      </form>
-    </div>
-  </nav>
-  <!-- top containr -->
-  <div class="main">
-    <div class="left-navigation">
-      <div class="user-details">
-        <div class="user-upper">
-          <img
-            src="https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            class="user-img" alt="" />
-          <i class="fa fa-sign-out" aria-hidden="true" style="height: 20px; width: 20px;"></i>
-        </div>
-        <span class="user-name">SASP</span>
+        </form>
       </div>
-      <div class="category">
-        <h1 class="category-title">Category</h1>
-        <div class="category-container">
-          <span class="category-name">Politics</span>
-          <span class="category-name">Politics</span>
-          <span class="category-name">Politics</span>
-          <span class="category-name">Politics</span>
-          <!-- Accounting
+    </nav>
+    <!-- top containr -->
+    <div class="main">
+      <div class="left-navigation">
+        <div class="user-details">
+          <div class="user-upper">
+            <img
+              src="https://images.pexels.com/photos/1043473/pexels-photo-1043473.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              class="user-img"
+              alt=""
+            />
+            <i
+              class="fa fa-sign-out"
+              aria-hidden="true"
+              style="height: 20px; width: 20px"
+            ></i>
+          </div>
+          <span class="user-name">SASP</span>
+        </div>
+        <div class="category">
+          <h1 class="category-title">Category</h1>
+          <div class="category-container">
+            <span class="category-name">Politics</span>
+            <span class="category-name">Politics</span>
+            <span class="category-name">Politics</span>
+            <span class="category-name">Politics</span>
+            <!-- Accounting
 Advertising & Marketing
 Banking & Finance
 Business
@@ -343,127 +369,159 @@ Politics & Government
 Politics & Government - Federal
 Politics & Government - Local
 Politics & Govern -->
+          </div>
         </div>
       </div>
-    </div>
-    <div class="middle-container">
-      <div class="main-news">
-        <h1><span style="font-weight: bold">Today's</span> headlines</h1>
-        <div class="main-news-info">
-          <img class="main-news-info-img"
-            src="https://bsmedia.business-standard.com/_media/bs/img/article/2021-06/03/full/1622695160-2207.jpg"
-            alt="" />
-          <div class="main-news-sub">
-            <div class="main-news-category-container">
-              <span class="news-info-category"> Politics </span>
+      <div class="middle-container">
+        <div class="main-news">
+          <h1><span style="font-weight: bold">Today's</span> headlines</h1>
+          <div class="main-news-info">
+            <img
+              class="main-news-info-img"
+              src="https://bsmedia.business-standard.com/_media/bs/img/article/2021-06/03/full/1622695160-2207.jpg"
+              alt=""
+            />
+            <a
+              href="./details.html?id=1239"
+              style="text-decoration: none; color: black"
+            >
+              <div class="main-news-sub">
+                <div class="main-news-category-container">
+                  <span class="news-info-category"> Politics </span>
+                  <div>
+                    <span class="date">27/012</span>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="location"> India</span>
+                  </div>
+                </div>
+                <span class="main-info-title"
+                  >The Console sidebar will be removed in favor of moving the
+                  filter UI to the toolbar.
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="news-videos">
+          <h1 style="font-weight: bold">Videos</h1>
+          <div class="videos-container">
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/u11iUqbNUu0"
+            >
+            </iframe>
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/jrZv76WO4YA"
+            >
+            </iframe>
+            <iframe
+              class="video"
+              src="https://www.youtube.com/embed/R0alThHNb0Y"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="right-top">
+          <h1><span style="font-weight: bold">IPLs</span> news</h1>
+          <div class="ipl-news-container">
+            <div class="card">
               <div>
-                <span class="date">27/012</span>
-                <i class="fas fa-map-marker-alt"></i>
-                <span class="location"> India</span>
+                <div class="team">
+                  <div>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/1200px-Mumbai_Indians_Logo.svg.png"
+                      class="team-logo"
+                      alt=""
+                    />
+                    <span class="team-name">MI</span>
+                  </div>
+                  <span class="team-score">159/1</span>
+                </div>
+                <div class="vs">VS</div>
+                <div class="team">
+                  <div>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/1200px-Chennai_Super_Kings_Logo.svg.png"
+                      class="team-logo"
+                      alt=""
+                    />
+                    <span class="team-name">CSK</span>
+                  </div>
+                  <span class="team-score">59/10</span>
+                </div>
+              </div>
+              <div class="short-description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s
               </div>
             </div>
-            <span class="main-info-title">The Console sidebar will be removed in favor of moving the
-              filter UI to the toolbar.
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="news-videos">
-        <h1 style="font-weight: bold">Videos</h1>
-        <div class="videos-container">
-          <iframe class="video" src="https://www.youtube.com/embed/u11iUqbNUu0">
-          </iframe>
-          <iframe class="video" src="https://www.youtube.com/embed/jrZv76WO4YA">
-          </iframe>
-          <iframe class="video" src="https://www.youtube.com/embed/R0alThHNb0Y">
-          </iframe>
-        </div>
-      </div>
-    </div>
-    <div class="right-container">
-      <div class="right-top">
-        <h1><span style="font-weight: bold">IPLs</span> news</h1>
-        <div class="ipl-news-container">
-          <div class="card">
-            <div>
-              <div class="team">
-                <div>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/1200px-Mumbai_Indians_Logo.svg.png"
-                    class="team-logo" alt="" />
-                  <span class="team-name">MI</span>
+            <div class="card">
+              <div>
+                <div class="team">
+                  <div>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/1200px-Mumbai_Indians_Logo.svg.png"
+                      class="team-logo"
+                      alt=""
+                    />
+                    <span class="team-name">MI</span>
+                  </div>
+                  <span class="team-score">159/1</span>
                 </div>
-                <span class="team-score">159/1</span>
-              </div>
-              <div class="vs">VS</div>
-              <div class="team">
-                <div>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/1200px-Chennai_Super_Kings_Logo.svg.png"
-                    class="team-logo" alt="" />
-                  <span class="team-name">CSK</span>
+                <div class="vs">VS</div>
+                <div class="team">
+                  <div>
+                    <img
+                      src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/1200px-Chennai_Super_Kings_Logo.svg.png"
+                      class="team-logo"
+                      alt=""
+                    />
+                    <span class="team-name">CSK</span>
+                  </div>
+                  <span class="team-score">59/10</span>
                 </div>
-                <span class="team-score">59/10</span>
               </div>
-            </div>
-            <div class="short-description">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy
-              text ever since the 1500s
-            </div>
-          </div>
-          <div class="card">
-            <div>
-              <div class="team">
-                <div>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/Mumbai_Indians_Logo.svg/1200px-Mumbai_Indians_Logo.svg.png"
-                    class="team-logo" alt="" />
-                  <span class="team-name">MI</span>
-                </div>
-                <span class="team-score">159/1</span>
+              <div class="short-description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s
               </div>
-              <div class="vs">VS</div>
-              <div class="team">
-                <div>
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Chennai_Super_Kings_Logo.svg/1200px-Chennai_Super_Kings_Logo.svg.png"
-                    class="team-logo" alt="" />
-                  <span class="team-name">CSK</span>
-                </div>
-                <span class="team-score">59/10</span>
-              </div>
-            </div>
-            <div class="short-description">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy
-              text ever since the 1500s
             </div>
           </div>
         </div>
-      </div>
-      <div class="right-bottom">
-        <h1><span style="font-weight: bold;">Political</span> news</h1>
-        <div>
-          <div class="category-card">
-            <img class="category-card-img"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQUFU9Mz-DqUGROu_Gx4t2F3BKiarQYCx1Xw&usqp=CAU"
-              alt="" />
-            <span class="category-card-title">Lorem Ipsum is simply dummy text of</span>
-          </div>
-          <div class="category-card">
-            <img class="category-card-img"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPVcUq3_WUPZNLFnBHGLFrhTbzHWaCJ5eXzw&usqp=CAU"
-              alt="" />
-            <span class="category-card-title">Lorem Ipsum is simply dummy text of</span>
+        <div class="right-bottom">
+          <h1><span style="font-weight: bold">Political</span> news</h1>
+          <div>
+            <div class="category-card">
+              <img
+                class="category-card-img"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQUFU9Mz-DqUGROu_Gx4t2F3BKiarQYCx1Xw&usqp=CAU"
+                alt=""
+              />
+              <span class="category-card-title"
+                >Lorem Ipsum is simply dummy text of</span
+              >
+            </div>
+            <div class="category-card">
+              <img
+                class="category-card-img"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPVcUq3_WUPZNLFnBHGLFrhTbzHWaCJ5eXzw&usqp=CAU"
+                alt=""
+              />
+              <span class="category-card-title"
+                >Lorem Ipsum is simply dummy text of</span
+              >
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- covid container -->
-  <script src="./js/showSearch.js"></script>
-</body>
-
+    <!-- covid container -->
+    <script src="./js/showSearch.js"></script>
+  </body>
 </html>
