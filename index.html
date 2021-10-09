@@ -138,6 +138,10 @@
       color: white;
     }
   </style>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
 </head>
 
 <body>
@@ -148,21 +152,26 @@
       </div>
       <div class="float-right right">
         <h2 class="title">Welcome !</h2>
-        <form method="post" class="form">
+        <form class="form">
           <div class="input-container">
             <i class="fa fa-user icon"></i>
-            <input class="input" type="text" placeholder="Username" name="username" required />
+            <input class="usr-input" id="usr-input" type="email" placeholder="Username" name="username" required />
           </div>
           <div class="input-container">
             <i class="fa fa-key icon"></i>
-            <input class="input" type="password" placeholder="Password" name="password" required />
+            <input class="pass-input" id="pass-input" type="password" placeholder="Password" name="password" required />
           </div>
-          <input type="submit" class="login-btn" value="Login" />
+          <button type="button" class="login-btn" id="submit"></button>
         </form>
         <h5 class="linkText">Don't you have an account? <a class="link" href="./signup.html">Create a new account</a>
         </h5>
       </div>
     </div>
+
+
+    <script src="./backend/db.js"></script>
+    <script src="./index.js"></script>
+
 </body>
 
 </html>
