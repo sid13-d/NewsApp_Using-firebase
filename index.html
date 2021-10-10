@@ -89,21 +89,16 @@
       padding-top: 40px;
     }
 
-    .msgBlock{
+    .msgBlock {
       width: 50%;
       height: 30px;
-      border-radius:10px;
+      border-radius: 10px;
       display: none;
       margin-bottom: 20px;
       align-items: center;
       justify-content: center
     }
 
-    .msgBlock p{
-      padding: 0px;
-      color: white;
-      margin: 0px;
-    }
 
     .input-container {
       /* display: -ms-flexbox; */
@@ -155,6 +150,53 @@
     .link {
       color: white;
     }
+
+    .msgBlock {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: rgba(0, 0, 0, 0.131);
+      display: none;
+    }
+
+    .msg {
+      position: relative;
+      background: white;
+      text-align: center;
+      width: 25rem;
+      height: 10rem;
+      margin: 5rem auto;
+      -webkit-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+      -moz-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+      box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+      animation-name: animatetop;
+      animation-duration: 0.5s;
+      padding-top: 20px;
+    }
+
+    @keyframes animatetop {
+      from {
+        top: -600px;
+        opacity: 0;
+      }
+
+      to {
+        top: 0;
+        opacity: 1;
+      }
+    }
+
+    .fa-close {
+      margin: 0;
+      padding: 0;
+      display: block;
+      padding-right: 2px;
+      justify-content: end;
+      right: 50px;
+      font-size: 26px;
+    }
   </style>
 
 </head>
@@ -167,9 +209,8 @@
       </div>
       <div class="float-right right">
         <h2 class="title">Welcome !</h2>
-        <form  class="form" onsubmit="login()">
-          <div id="msgBlock" class="msgBlock">
-          </div>
+        <form class="form" onsubmit="login()">
+
           <div class="input-container">
             <i class="fa fa-user icon"></i>
             <input class="input" id="emailId" type="email" placeholder="Email" name="email" required />
@@ -180,18 +221,27 @@
           </div>
           <input type="submit" class="login-btn" id="submit" value="Login" />
         </form>
-        <h5 class="linkText">Don't you have an account? <a class="link" href="./signup/signup.html">Create a new account</a>
+        <h5 class="linkText">Don't you have an account? <a class="link" href="./signup/signup.html">Create a new
+            account</a>
         </h5>
       </div>
+
+      <div id="msgBlock" class="msgBlock">
+        <div class="msg" id="msg">
+          <i class="fa fa-close"></i>
+
+        </div>
+      </div>
     </div>
+  </div>>
 
 
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
 
-    <script src="./backend/db.js"></script>
-    <script src="./index.js"></script>
+  <script src="./backend/db.js"></script>
+  <script src="./index.js"></script>
 
 </body>
 

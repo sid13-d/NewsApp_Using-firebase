@@ -13,6 +13,7 @@ function login() {
   var email = document.getElementById("emailId").value;
   var password = document.getElementById("password").value;
   var msgBlock = document.getElementById("msgBlock");
+  var msg = document.getElementById("msg");
   //Sign In User with Email and Password
   firebase
     .auth()
@@ -21,8 +22,8 @@ function login() {
       // Signed in
       var user = userCredential.user;
       console.log(user);
-      msgBlock.style = "display: flex; background-color: #7CFC00";
-      msgBlock.innerHTML = "<p>Login successful</p>";
+      msgBlock.style = "display: block;";
+      msg.innerHTML = "<h4>Login successful</h4>";
       window.location.replace("./home");
       // ...
     })
@@ -30,14 +31,22 @@ function login() {
       var errorCode = error.code;
       var errorMessage = error.message;
       //   console.log(errorCode);
-      msgBlock.style = "display: flex; background-color: #ff2400";
+      msgBlock.style = "display: block;";
       if (errorCode === "auth/user-not-found") {
         // console.log(errorMessage);
         // alert("Email Id dose not exist");
-        msgBlock.innerHTML = "<p>Email Id does not exist</p>";
+        msg.innerHTML = "<h4 style='margin-top: 15px;'>Email Id does not exist</h4>";
       } else {
-        msgBlock.innerHTML = "<p>Invalid details</p>";
+        msg.innerHTML = "<h4 style='margin-top: 15px;'>Invalid details</h4>";
         // alert("Invalid details");
       }
     });
+
+  window.addEventListener('click', e => {
+    if (e.target === msgBlock) {
+      msgBlock.style = "display: none";
+    }
+  })
 }
+
+
