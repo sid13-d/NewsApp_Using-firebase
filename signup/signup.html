@@ -95,6 +95,22 @@
             /* align-items: center; */
         }
 
+        .msgBlock {
+            width: 50%;
+            height: 30px;
+            border-radius: 10px;
+            display: none;
+            margin-bottom: 20px;
+            align-items: center;
+            justify-content: center
+        }
+
+        .msgBlock p {
+            padding: 0px;
+            color: white;
+            margin: 0px;
+        }
+
         .input-container {
             /* display: -ms-flexbox; */
             /* IE10 */
@@ -168,37 +184,40 @@
     <div class="main-container">
         <div class="container">
             <div class="float-left left">
-                <img src="./assets/login_img.png" class="login-img" alt="" />
+                <img src="../assets/login_img.png" class="login-img" alt="" />
             </div>
             <div class="float-right right">
                 <h2 class="title">Welcome !</h2>
-                <form method="post" class="form" action="./backend/signup.php">
+                <form class="form" onsubmit="signup()">
+                    <div id="msgBlock" class="msgBlock">
+                    </div>
                     <div class="input-container">
                         <i class="fa fa-user icon"></i>
-                        <input class="input" id="input" type="text" placeholder="Username" name="username" required />
+                        <input class="input" id="username" type="text" placeholder="Username" name="username"
+                            required />
                     </div>
                     <div class="input-container">
                         <i class="fa fa-envelope icon"></i>
-                        <input class="input" id="usr-input" type="email" placeholder="Your email""
-                name=" email" required />
+                        <input class="input" id="emailId" type="email" placeholder="Your email" name="email" required />
                     </div>
                     <div class="input-container">
                         <i class="fa fa-key icon"></i>
-                        <input class="input" id="pass-input" type="password" id="password" placeholder="Password"
+                        <input class="input" id="password" type="password" placeholder="Password" minlength="6"
                             name="password" autocomplete="off" required />
                     </div>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                             aria-valuemax="100" style="width:0%"></div>
                     </div>
-                    <button type="button" id="submit" class="signup-btn">Sign up</button>>
+
+                    <input type="submit" class="signup-btn" id="submit" value="Sign Up" />
                 </form>
-                <h5 class="linkText">Already have an accountt? <a class="link" href="./index.html">Login now</a></h5>
+                <h5 class="linkText">Already have an accountt? <a class="link" href="../index.html">Login now</a></h5>
             </div>
         </div>
         <script type="text/javascript">
             let timeout;
-            let password = document.getElementById('pass-input');
+            let password = document.getElementById('password');
             // let strengthBadge = document.getElementById('StrengthDisp');
             function checkpassword(password) {
                 var strength = 0;

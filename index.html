@@ -21,6 +21,8 @@
 
   <!-- Add icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
   <!--styling-->
   <style>
     .main-container {
@@ -87,6 +89,22 @@
       padding-top: 40px;
     }
 
+    .msgBlock{
+      width: 50%;
+      height: 30px;
+      border-radius:10px;
+      display: none;
+      margin-bottom: 20px;
+      align-items: center;
+      justify-content: center
+    }
+
+    .msgBlock p{
+      padding: 0px;
+      color: white;
+      margin: 0px;
+    }
+
     .input-container {
       /* display: -ms-flexbox; */
       /* IE10 */
@@ -138,10 +156,7 @@
       color: white;
     }
   </style>
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+
 </head>
 
 <body>
@@ -152,22 +167,28 @@
       </div>
       <div class="float-right right">
         <h2 class="title">Welcome !</h2>
-        <form class="form">
+        <form  class="form" onsubmit="login()">
+          <div id="msgBlock" class="msgBlock">
+          </div>
           <div class="input-container">
             <i class="fa fa-user icon"></i>
-            <input class="usr-input" id="usr-input" type="email" placeholder="Username" name="username" required />
+            <input class="input" id="emailId" type="email" placeholder="Email" name="email" required />
           </div>
           <div class="input-container">
             <i class="fa fa-key icon"></i>
-            <input class="pass-input" id="pass-input" type="password" placeholder="Password" name="password" required />
+            <input class="input" id="password" type="password" placeholder="Password" name="password" required />
           </div>
-          <button type="button" class="login-btn" id="submit"></button>
+          <input type="submit" class="login-btn" id="submit" value="Login" />
         </form>
-        <h5 class="linkText">Don't you have an account? <a class="link" href="./signup.html">Create a new account</a>
+        <h5 class="linkText">Don't you have an account? <a class="link" href="./signup/signup.html">Create a new account</a>
         </h5>
       </div>
     </div>
 
+
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
 
     <script src="./backend/db.js"></script>
     <script src="./index.js"></script>

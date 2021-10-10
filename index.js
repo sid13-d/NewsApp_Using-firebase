@@ -1,31 +1,43 @@
 // import db from "../backend/db.js";
 
-db.collection('dummy').get().then(querySnapshot => {
-    querySnapshot.forEach(doc => {
-        console.log(doc.data());
+db.collection("dummy")
+  .get()
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
     });
-})
-
-
-document.getElementById('submit').addEventListener('click', login)
+  });
 
 function login() {
-    var email = document.getElementById('usr-input').value;
-    var password = document.getElementById('pass-input').value;
-
-    console.log('calling')
-    //Sign In User with Email and Password
-    firebase.auth().signInWithEmailAndPassword(email, password).then((userCredential) => {
-        // Signed in
-        var user = userCredential.user;
-        console.log(user);
-        // ...
+  event.preventDefault();
+  var email = document.getElementById("emailId").value;
+  var password = document.getElementById("password").value;
+  var msgBlock = document.getElementById("msgBlock");
+  //Sign In User with Email and Password
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Signed in
+      var user = userCredential.user;
+      console.log(user);
+      msgBlock.style = "display: flex; background-color: #7CFC00";
+      msgBlock.innerHTML = "<p>Login successful</p>";
+      window.location.replace("./home");
+      // ...
     })
-        .catch((error) => {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-        });
-
-
+    .catch((error) => {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      //   console.log(errorCode);
+      msgBlock.style = "display: flex; background-color: #ff2400";
+      if (errorCode === "auth/user-not-found") {
+        // console.log(errorMessage);
+        // alert("Email Id dose not exist");
+        msgBlock.innerHTML = "<p>Email Id does not exist</p>";
+      } else {
+        msgBlock.innerHTML = "<p>Invalid details</p>";
+        // alert("Invalid details");
+      }
+    });
 }
-
