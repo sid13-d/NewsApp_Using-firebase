@@ -1,248 +1,260 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <!-- Optional theme -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous" />
+    <!-- Latest compiled and minified JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous"></script>
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
-  <!-- Add icon library -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-
-
-  <!--styling-->
-  <style>
-    .main-container {
-      background-color: white;
-      /* margin: 0 auto; */
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .container {
-      height: 80vh;
-      width: 80%;
-      box-shadow: 5px 10px 18px #888;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 10px;
-      padding: 0%;
-    }
-
-    .left {
-      background-color: white;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-bottom-left-radius: 10px;
-      border-top-left-radius: 10px;
-    }
-
-    .right {
-      background-color: #6231db;
-      width: 100%;
-      height: 100%;
-      /* display:; */
-      justify-content: center;
-      /* align-items: center; */
-      flex-direction: row;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      padding: 40px;
-    }
-
-    .login-img {
-      height: 80%;
-      width: 100%;
-    }
-
-    .title {
-      font-size: 40px;
-      color: white;
-      font-weight: bold;
-    }
-
-    .form {
-      height: 80%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      padding-top: 40px;
-    }
-
-    .msgBlock {
-      width: 50%;
-      height: 30px;
-      border-radius: 10px;
-      display: none;
-      margin-bottom: 20px;
-      align-items: center;
-      justify-content: center
-    }
-
-
-    .input-container {
-      /* display: -ms-flexbox; */
-      /* IE10 */
-      display: flex;
-      width: 50%;
-      margin-bottom: 25px;
-      height: 40px;
-      border-radius: 50px;
-      background-color: white;
-    }
-
-    .icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: black;
-      width: 50px;
-      text-align: center;
-    }
-
-    .input {
-      width: 100%;
-      align-items: center;
-      /* padding: 10px; */
-      border: none;
-      outline: none;
-      border-radius: 50px;
-    }
-
-    .login-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 35%;
-      height: 40px;
-      border-radius: 50px;
-      margin-top: 20x;
-      margin-bottom: 30px;
-      color: white;
-      font-weight: 800;
-      background-color: black;
-    }
-
-    .linkText {
-      color: #ddd;
-    }
-
-    .link {
-      color: white;
-    }
-
-    .msgBlock {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-      background: rgba(0, 0, 0, 0.131);
-      display: none;
-    }
-
-    .msg {
-      position: relative;
-      background: white;
-      text-align: center;
-      width: 25rem;
-      height: 10rem;
-      margin: 5rem auto;
-      -webkit-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
-      -moz-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
-      box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
-      animation-name: animatetop;
-      animation-duration: 0.5s;
-      padding-top: 20px;
-    }
-
-    @keyframes animatetop {
-      from {
-        top: -600px;
-        opacity: 0;
+    <!--styling-->
+    <style>
+      .main-container {
+        background-color: white;
+        /* margin: 0 auto; */
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      to {
+      .container {
+        height: 80vh;
+        width: 80%;
+        box-shadow: 5px 10px 18px #888;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        padding: 0%;
+      }
+
+      .left {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+      }
+
+      .right {
+        background-color: #6231db;
+        width: 100%;
+        height: 100%;
+        /* display:; */
+        justify-content: center;
+        /* align-items: center; */
+        flex-direction: row;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 40px;
+      }
+
+      .login-img {
+        height: 80%;
+        width: 100%;
+      }
+
+      .title {
+        font-size: 40px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .form {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 40px;
+      }
+
+      .msgBlock {
+        width: 50%;
+        height: 30px;
+        border-radius: 10px;
+        display: none;
+        margin-bottom: 20px;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .input-container {
+        /* display: -ms-flexbox; */
+        /* IE10 */
+        display: flex;
+        width: 50%;
+        margin-bottom: 25px;
+        height: 40px;
+        border-radius: 50px;
+        background-color: white;
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        width: 50px;
+        text-align: center;
+      }
+
+      .input {
+        width: 100%;
+        align-items: center;
+        /* padding: 10px; */
+        border: none;
+        outline: none;
+        border-radius: 50px;
+      }
+
+      .login-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+        height: 40px;
+        border-radius: 50px;
+        margin-top: 20x;
+        margin-bottom: 30px;
+        color: white;
+        font-weight: 800;
+        background-color: black;
+      }
+
+      .linkText {
+        color: #ddd;
+      }
+
+      .link {
+        color: white;
+      }
+
+      .msgBlock {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
         top: 0;
-        opacity: 1;
+        background: rgba(0, 0, 0, 0.131);
+        display: none;
       }
-    }
 
-    .fa-close {
-      margin: 0;
-      padding: 0;
-      display: block;
-      padding-right: 2px;
-      justify-content: end;
-      right: 50px;
-      font-size: 26px;
-    }
-  </style>
+      .msg {
+        position: relative;
+        background: white;
+        text-align: center;
+        width: 25rem;
+        height: 10rem;
+        margin: 5rem auto;
+        -webkit-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+        -moz-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+        box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+        animation-name: animatetop;
+        animation-duration: 0.5s;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
 
-</head>
+      @keyframes animatetop {
+        from {
+          top: -600px;
+          opacity: 0;
+        }
 
-<body>
-  <div class="main-container">
-    <div class="container">
-      <div class="float-left left">
-        <img src="./assets/login_img.png" class="login-img" alt="" />
-      </div>
-      <div class="float-right right">
-        <h2 class="title">Welcome !</h2>
-        <form class="form" onsubmit="login()">
+        to {
+          top: 0;
+          opacity: 1;
+        }
+      }
 
-          <div class="input-container">
-            <i class="fa fa-user icon"></i>
-            <input class="input" id="emailId" type="email" placeholder="Email" name="email" required />
-          </div>
-          <div class="input-container">
-            <i class="fa fa-key icon"></i>
-            <input class="input" id="password" type="password" placeholder="Password" name="password" required />
-          </div>
-          <input type="submit" class="login-btn" id="submit" value="Login" />
-        </form>
-        <h5 class="linkText">Don't you have an account? <a class="link" href="./signup/signup.html">Create a new
-            account</a>
-        </h5>
-      </div>
+      .fa-close {
+        font-size: 15px;
+      }
+    </style>
+  </head>
 
-      <div id="msgBlock" class="msgBlock">
-        <div class="msg" id="msg">
-          <i class="fa fa-close"></i>
-
+  <body>
+    <div class="main-container">
+      <div class="container">
+        <div class="float-left left">
+          <img src="./assets/login_img.png" class="login-img" alt="" />
+        </div>
+        <div class="float-right right">
+          <h2 class="title">Welcome !</h2>
+          <form class="form" onsubmit="login()">
+            <div id="msgBlock" class="msgBlock">
+              <div class="msg" id="msg"></div>
+            </div>
+            <div class="input-container">
+              <i class="fa fa-user icon"></i>
+              <input
+                class="input"
+                id="emailId"
+                type="email"
+                placeholder="Email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="input-container">
+              <i class="fa fa-key icon"></i>
+              <input
+                class="input"
+                id="password"
+                type="password"
+                placeholder="Password"
+                name="password"
+                required
+              />
+            </div>
+            <input type="submit" class="login-btn" id="submit" value="Login" />
+          </form>
+          <h5 class="linkText">
+            Don't you have an account?
+            <a class="link" href="./signup/signup.html">Create a new account</a>
+          </h5>
         </div>
       </div>
     </div>
-  </div>>
 
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
 
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
-
-  <script src="./backend/db.js"></script>
-  <script src="./index.js"></script>
-
-</body>
-
+    <script src="./backend/db.js"></script>
+    <script src="./index.js"></script>
+  </body>
 </html>

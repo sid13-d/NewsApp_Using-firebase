@@ -35,18 +35,16 @@ function login() {
       if (errorCode === "auth/user-not-found") {
         // console.log(errorMessage);
         // alert("Email Id dose not exist");
-        msg.innerHTML = "<h4 style='margin-top: 15px;'>Email Id does not exist</h4>";
+        msg.innerHTML =
+          "<h4 style='margin-top: 15px;'>Email Id does not exist</h4><i class='fa fa-close'></i>";
       } else {
-        msg.innerHTML = "<h4 style='margin-top: 15px;'>Invalid details</h4>";
+        msg.innerHTML =
+          "<h4 style='margin-top: 15px;'>Invalid details</h4><i class='fa fa-close'></i>";
         // alert("Invalid details");
       }
     });
 
-  window.addEventListener('click', e => {
-    if (e.target === msgBlock) {
-      msgBlock.style = "display: none";
-    }
-  })
+  msgBlock.addEventListener("click", (e) => {
+    msgBlock.style = "display: none";
+  });
 }
-
-

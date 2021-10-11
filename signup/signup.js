@@ -3,6 +3,8 @@ function signup() {
   var username = document.getElementById("username").value;
   var email = document.getElementById("emailId").value;
   var password = document.getElementById("password").value;
+  var msgBlock = document.getElementById("msgBlock");
+  var msg = document.getElementById("msg");
 
   //Sign In User with Email and Password
   firebase
@@ -12,19 +14,26 @@ function signup() {
       // Signed in
       var user = userCredential.user;
       console.log(user);
-      msgBlock.style = "display: flex; background-color: #7CFC00";
-      msgBlock.innerHTML = "<p>Login successful</p>";
+      msgBlock.style = "display: block;";
+      msg.innerHTML = "<h4>Signup successful</h4>";
       window.location.replace("../home");
       // ...
     })
     .catch((error) => {
       var errorCode = error.code;
       var errorMessage = error.message;
-      msgBlock.style = "display: flex; background-color: #ff2400";
+      msgBlock.style = "display: block;";
       if (errorCode === "auth/email-already-in-use") {
-        msgBlock.innerHTML = "<p>Email Id already registered</p>";
+        msg.innerHTML =
+          "<h4 style='margin-top: 15px;'>Email Id is already registered.</h4><i class='fa fa-close'></i>";
+      } else {
+        msg.innerHTML =
+          "<h4 style='margin-top: 15px;'>Erro occured please try again.</h4><i class='fa fa-close'></i>";
       }
       console.log(errorMessage);
       console.log(errorCode);
     });
+  msgBlock.addEventListener("click", (e) => {
+    msgBlock.style = "display: none";
+  });
 }

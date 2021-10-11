@@ -96,19 +96,48 @@
         }
 
         .msgBlock {
-            width: 50%;
-            height: 30px;
-            border-radius: 10px;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, 0.131);
             display: none;
-            margin-bottom: 20px;
-            align-items: center;
-            justify-content: center
         }
 
-        .msgBlock p {
-            padding: 0px;
-            color: white;
-            margin: 0px;
+        .msg {
+            position: relative;
+            background: white;
+            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            width: 32rem;
+            height: 10rem;
+            margin: 5rem auto;
+            -webkit-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+            -moz-box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+            box-shadow: 7px 5px 54px -5px rgba(0, 0, 0, 0.85);
+            animation-name: animatetop;
+            animation-duration: 0.5s;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -600px;
+                opacity: 0;
+            }
+
+            to {
+                top: 0;
+                opacity: 1;
+            }
+        }
+
+        .fa-close {
+            font-size: 15px;
         }
 
         .input-container {
@@ -189,8 +218,9 @@
             <div class="float-right right">
                 <h2 class="title">Welcome !</h2>
                 <form class="form" onsubmit="signup()">
-                    <div id="msgBlock" class="msgBlock">
-                    </div>
+                   <div id="msgBlock" class="msgBlock">
+              <div class="msg" id="msg"></div>
+            </div>
                     <div class="input-container">
                         <i class="fa fa-user icon"></i>
                         <input class="input" id="username" type="text" placeholder="Username" name="username"
