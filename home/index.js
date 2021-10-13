@@ -112,3 +112,28 @@ function getMatchResults() {
     });
 }
 getMatchResults();
+
+
+function renderBottom(item) {
+  var div = document.createElement("div");
+  div.innerHTML = `
+  <div class="category-card">
+  <img class="category-card-img"
+    src=${item.data().img_url}
+    alt="" />
+  <span class="category-card-title">${item.data().title}</span>
+</div>
+  `;
+  return div;
+}
+
+function bottomContainer() {
+  var div = document.getElementById("right-bottom");
+  db.collection('news').orderBy("id").limit(2).get().then((querySnapshot) => {
+    querySnapshot.forEach((item) => {
+      div.appendChild(renderBottom(item));
+    });
+  });
+}
+
+bottomContainer();
