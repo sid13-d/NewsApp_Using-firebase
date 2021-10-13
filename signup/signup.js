@@ -10,13 +10,20 @@ function signup() {
   firebase
     .auth()
     .createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       // Signed in
       var user = userCredential.user;
       console.log(user);
+      await db.collection("users").doc(email).set({
+        email: email,
+        username: username,
+        password: password,
+        lastLogin: Date.now(),
+      });
       msgBlock.style = "display: block;";
       msg.innerHTML = "<h4>Signup successful</h4>";
       window.location.replace("../home");
+
       // ...
     })
     .catch((error) => {
