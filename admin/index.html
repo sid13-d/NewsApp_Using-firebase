@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h2>News</h2>
+      </header>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Category</th>
+              <th>Title</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody class="user-table"></tbody>
+        </table>
+        <button class="btn btn-addUser addNews" style="margin-top: 30px">
+          Add news
+        </button>
+      </div>
+
+      <!-- //add news -->
+      <div class="add-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Add news</h3>
+          </div>
+          <div class="modal-body">
+            <form action="" class="form" autocomplete="off">
+              <input type="number" name="id" placeholder="Id" required />
+
+              <select name="category" id="category"></select>
+              <input type="text" name="title" placeholder="Title" required />
+              <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+              <!-- <input
+                type="text"
+                name="desc"
+                placeholder="News description"
+                required
+              /> -->
+              <input type="text" name="author" placeholder="Author" required />
+              <input
+                type="text"
+                name="location"
+                placeholder="Location"
+                required
+              />
+              <input
+                type="url"
+                name="img_url"
+                placeholder="Image url"
+                required
+              />
+              <button class="btn btn-modal">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- //edit news -->
+      <div class="edit-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Edit news</h3>
+          </div>
+          <div class="modal-body">
+            <form action="" class="form" autocomplete="off">
+              <!-- <input type="number" name="id" placeholder="id"> -->
+              <input type="number" name="id" placeholder="id" disabled />
+              <input
+                type="text"
+                name="category"
+                placeholder="category"
+                disabled
+              />
+              <input type="text" name="title" placeholder="title" required />
+              <textarea name="desc" id="desc" cols="30" rows="10"> </textarea>
+              <!-- <input
+                type="text"
+                name="desc"
+                placeholder="news description"
+                required
+              /> -->
+              <input type="url" name="img_url" placeholder="img_url" required />
+              <button class="btn btn-modal">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+    <script>
+      // Import the functions you need from the SDKs you need
+      // import { firebase, initializeApp } from "firebase/app";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAyaY6hi3Fdja-NH7xaewGEcFSLFRxCiGY",
+        authDomain: "punetimes-88db3.firebaseapp.com",
+        projectId: "punetimes-88db3",
+        storageBucket: "punetimes-88db3.appspot.com",
+        messagingSenderId: "1007572416520",
+        appId: "1:1007572416520:web:af88fa4976d2f3cdb4b9bd",
+      };
+
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -69,7 +69,7 @@ function addNewsPost(data, id) {
               >
             </div>
             <div class="show-more">
-              <a class="result" href="../details/details.html?id=${id}">Read more </a>
+              <a class="result" href="../detials/details.html?id=${id}">Read more </a>
             </div>
           </div>
       `;

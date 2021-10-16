@@ -113,27 +113,30 @@ function getMatchResults() {
 }
 getMatchResults();
 
-
 function renderBottom(item) {
   var div = document.createElement("div");
   div.innerHTML = `
-  <div class="category-card">
-  <img class="category-card-img"
-    src=${item.data().img_url}
-    alt="" />
-  <span class="category-card-title">${item.data().title}</span>
-</div>
+  <a class="category-card" href="../detials/details.html?id=${item.id}">
+      <img class="category-card-img"
+      src=${item.data().img_url}
+      alt="" />
+      <span class="category-card-title">${item.data().title}</span>
+  </a>
   `;
   return div;
 }
 
 function bottomContainer() {
   var div = document.getElementById("right-bottom");
-  db.collection('news').orderBy("id").limit(2).get().then((querySnapshot) => {
-    querySnapshot.forEach((item) => {
-      div.appendChild(renderBottom(item));
+  db.collection("news")
+    .orderBy("id")
+    .limit(2)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((item) => {
+        div.appendChild(renderBottom(item));
+      });
     });
-  });
 }
 
 bottomContainer();

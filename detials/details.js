@@ -1,14 +1,14 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const id = urlParams.get('id');
-console.log(id);
-
+const id = urlParams.get("id");
 
 function renderDetails(item) {
-    var div = document.createElement("div");
-    div.className = "info";
-    div.innerHTML = `
-    <span class="info-category" id="info-category">${item.data().category}</span>
+  var div = document.createElement("div");
+  div.className = "info";
+  div.innerHTML = `
+    <span class="info-category" id="info-category">${
+      item.data().category
+    }</span>
     <div class="img-container">
       <img
         src=${item.data().img_url}
@@ -22,21 +22,23 @@ function renderDetails(item) {
     </span>
   
     `;
-    return div;
+  return div;
 }
 
 function getCategory() {
-    var div = document.getElementById("category");
-    db.collection("news").doc(urlParams.get('id')).get().then((item) => {
-        console.log(item.data());
-        div.appendChild(renderDetails(item));
+  var div = document.getElementById("category");
+  db.collection("news")
+    .doc(urlParams.get("id"))
+    .get()
+    .then((item) => {
+      div.appendChild(renderDetails(item));
     });
 }
 
 getCategory();
 
-
-{/* <a href="./details.html?id=1244" style="text-decoration: none">
+{
+  /* <a href="./details.html?id=1244" style="text-decoration: none">
 <div class="trending-new-card">
   <img
     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlKb8AN5vJkA594e4NlhfNKRiWAiHQq492mw&usqp=CAU"
@@ -47,11 +49,12 @@ getCategory();
     <p class="news-date">date</p>
   </div>
 </div>
-</a> */}
+</a> */
+}
 function renderPopoular(item) {
-    var div = document.createElement("div");
-    div.innerHTML = `
-    <a href="./details.html?id=${item.data().id}" style="text-decoration: none">
+  var div = document.createElement("div");
+  div.innerHTML = `
+    <a href="./details.html?id=${item.id}" style="text-decoration: none">
     <div class="trending-new-card">
       <img
         src=${item.data().img_url}
@@ -64,16 +67,19 @@ function renderPopoular(item) {
     </div>
   </a>
      `;
-    return div;
+  return div;
 }
 
 function getPopular() {
-    var div = document.getElementById("popular-container");
-    db.collection("news").orderBy("id").limit(3).get().then((querySnapshot) => {
-        querySnapshot.forEach((item) => {
-            console.log(item.data())
-            div.appendChild(renderPopoular(item));
-        });
+  var div = document.getElementById("popular-container");
+  db.collection("news")
+    .orderBy("id")
+    .limit(3)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((item) => {
+        div.appendChild(renderPopoular(item));
+      });
     });
 }
 getPopular();
