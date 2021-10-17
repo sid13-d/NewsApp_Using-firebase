@@ -100,6 +100,7 @@
       .upper-element {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: space-between;
       }
 
@@ -202,12 +203,16 @@
           Search results: <span id="search-results-count"></span>
         </h4>
         <div class="sortby-container">
-          <h4 class="search-results">Srot by:</h4>
-          <select name="sort" id="sort" class="sort-dropdown">
+          <h4 class="search-results">Sort by:</h4>
+          <select
+            name="sort"
+            id="sort"
+            class="sort-dropdown"
+            onchange="sort(this)"
+          >
             <option value="latest">Latest</option>
+            <option value="old">Old</option>
             <option value="location">Location</option>
-            <option value="size">Size</option>
-            <option value="most">Most read</option>
           </select>
         </div>
       </div>

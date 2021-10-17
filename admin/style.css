@@ -54,11 +54,15 @@ header h2 {
 }
 .btn {
   background-color: transparent;
-  width: 5rem;
+  min-width: 6rem;
   height: 2rem;
   border-radius: 1rem;
   cursor: pointer;
   outline: none;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .btn-edit {
@@ -134,12 +138,26 @@ header h2 {
 .modal-body {
   padding: 2rem;
 }
+
+.two-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.two-input input {
+  width: 48%;
+  min-height: 2rem;
+  margin-bottom: 1rem;
+  padding: 10px;
+}
+
 input,
 textarea,
 select {
   width: 100%;
   min-height: 2rem;
   margin-bottom: 1rem;
+  padding: 10px;
 }
 
 .btn-modal {

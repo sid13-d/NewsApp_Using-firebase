@@ -84,8 +84,7 @@
 
       .trending-new-card {
         margin: 5px;
-
-        /* height: 8px; */
+        margin-bottom: 10px;
         width: 90%;
         background-color: white;
         display: flex;
@@ -122,6 +121,11 @@
         margin: 2px;
         font-size: 15px;
         opacity: 0.5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
         color: #000;
       }
 
@@ -137,7 +141,7 @@
         <div class="navbar-header">
           <a
             class="navbar-brand"
-            href="./home.html"
+            href="../home/index.html"
             style="color: #000; font-weight: bold"
             >Pune Times</a
           >

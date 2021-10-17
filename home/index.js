@@ -42,6 +42,47 @@ function getCategories() {
 }
 getCategories();
 
+function getHeadLines() {
+  var container = document.getElementById("main-news-info");
+  db.collection("news")
+    .where("category", "==", "Politics")
+    // .orderBy("date", "desc")
+    .limit(1)
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+        container.innerHTML = "";
+        container.innerHTML = `
+          <img
+              class="main-news-info-img"
+              src=${doc.data().img_url}
+              alt=""
+            />
+            <a
+              href="../detials/details.html?id=${doc.id}"
+              style="text-decoration: none; color: black"
+            >
+              <div class="main-news-sub">
+                <div class="main-news-category-container">
+                  <span class="news-info-category"> Politics </span>
+                  <div>
+                    <span class="date">27/012</span>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span class="location"> ${doc.data().location}</span>
+                  </div>
+                </div>
+                <span class="main-info-title"
+                  >${doc.data().title}
+                </span>
+              </div>
+            </a>`;
+      });
+    });
+}
+
+getHeadLines();
+
 const renderVideo = (item) => {
   var iframe = document.createElement("iframe");
   iframe.className = "video";
@@ -102,7 +143,7 @@ function renderMatchCard(item) {
 function getMatchResults() {
   var div = document.getElementById("ipl-news-container");
   db.collection("sportsMatch")
-    .orderBy("id")
+    .orderBy("date", "desc")
     .limit(2)
     .get()
     .then((querySnapshot) => {
@@ -129,7 +170,7 @@ function renderBottom(item) {
 function bottomContainer() {
   var div = document.getElementById("right-bottom");
   db.collection("news")
-    .orderBy("id")
+    .where("category", "==", "Sports")
     .limit(2)
     .get()
     .then((querySnapshot) => {

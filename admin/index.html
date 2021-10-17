@@ -26,12 +26,45 @@
           </thead>
           <tbody class="user-table"></tbody>
         </table>
-        <button class="btn btn-addUser addNews" style="margin-top: 30px">
-          Add news
-        </button>
+        <div>
+          <button class="btn addCategory" style="margin-top: 30px">
+            Add category
+          </button>
+          <button class="btn btn-addUser addNews" style="margin-top: 30px">
+            Add news
+          </button>
+          <button class="btn addVideo" style="margin-top: 30px">
+            Add video
+          </button>
+          <button class="btn addMatch" style="margin-top: 30px">
+            Add match result
+          </button>
+        </div>
       </div>
 
-      <!-- //add news -->
+      <!-- //add category -->
+      <div class="add-category-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Add category</h3>
+          </div>
+          <div class="modal-body">
+            <form action="" class="form" autocomplete="off">
+              <input type="number" name="id" placeholder="Id" required />
+              <input type="text" name="name" placeholder="Name" required />
+              <input
+                type="text"
+                name="img_url"
+                placeholder="Image url"
+                required
+              />
+              <button class="btn btn-modal">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- add news -->
       <div class="add-modal modal-wrapper">
         <div class="modal">
           <div class="modal-header">
@@ -44,12 +77,6 @@
               <select name="category" id="category"></select>
               <input type="text" name="title" placeholder="Title" required />
               <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
-              <!-- <input
-                type="text"
-                name="desc"
-                placeholder="News description"
-                required
-              /> -->
               <input type="text" name="author" placeholder="Author" required />
               <input
                 type="text"
@@ -63,6 +90,79 @@
                 placeholder="Image url"
                 required
               />
+              <button class="btn btn-modal">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- add video -->
+      <div class="add-video-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Add video</h3>
+          </div>
+          <div class="modal-body">
+            <form action="" class="form" autocomplete="off">
+              <input type="number" name="id" placeholder="Id" required />
+              <select name="categoryVideo" id="categoryVideo"></select>
+              <input type="url" name="url" placeholder="Video url" required />
+              <button class="btn btn-modal">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- add match result -->
+      <div class="add-match-modal modal-wrapper">
+        <div class="modal">
+          <div class="modal-header">
+            <h3>Add Match Result</h3>
+          </div>
+          <div class="modal-body">
+            <form action="" class="form" autocomplete="off">
+              <input type="number" name="id" placeholder="Id" required />
+              <div class="two-input">
+                <input
+                  type="text"
+                  name="team1_name"
+                  placeholder="Team 1 name"
+                  required
+                />
+                <input
+                  type="text"
+                  name="team1_score"
+                  placeholder="Team 1 score"
+                  required
+                />
+              </div>
+              <input
+                type="url"
+                name="team1_img"
+                placeholder="Team 1 image url"
+                required
+              />
+              <div class="two-input">
+                <input
+                  type="text"
+                  name="team2_name"
+                  placeholder="Team 2 name"
+                  required
+                />
+                <input
+                  type="text"
+                  name="team2_score"
+                  placeholder="Team 2 score"
+                  required
+                />
+              </div>
+              <input
+                type="url"
+                name="team2_img"
+                placeholder="Team 2 image url"
+                required
+              />
+              <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
               <button class="btn btn-modal">Submit</button>
             </form>
           </div>
@@ -87,12 +187,7 @@
               />
               <input type="text" name="title" placeholder="title" required />
               <textarea name="desc" id="desc" cols="30" rows="10"> </textarea>
-              <!-- <input
-                type="text"
-                name="desc"
-                placeholder="news description"
-                required
-              /> -->
+
               <input type="url" name="img_url" placeholder="img_url" required />
               <button class="btn btn-modal">Save</button>
             </form>

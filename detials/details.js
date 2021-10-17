@@ -5,6 +5,9 @@ const id = urlParams.get("id");
 function renderDetails(item) {
   var div = document.createElement("div");
   div.className = "info";
+  // console.log(item);
+  var date = new Date(item.data().date.seconds * 1000);
+  date = date.toGMTString();
   div.innerHTML = `
     <span class="info-category" id="info-category">${
       item.data().category
@@ -15,7 +18,7 @@ function renderDetails(item) {
         alt="" class="img" />
     </div>
     <span class="title" id="title">${item.data().title}</span>
-    <span class="date">27-01</span>
+    <span class="date">${date}</span>
 
     <span class="description">
      ${item.data().news_desc}
@@ -53,6 +56,8 @@ getCategory();
 }
 function renderPopoular(item) {
   var div = document.createElement("div");
+  var date = new Date(item.data().date.seconds * 1000);
+  date = date.toGMTString();
   div.innerHTML = `
     <a href="./details.html?id=${item.id}" style="text-decoration: none">
     <div class="trending-new-card">
@@ -60,9 +65,9 @@ function renderPopoular(item) {
         src=${item.data().img_url}
         class="trending-news-img" alt="" />
       <div class="trending-new-info">
-        <h3 class="news-subtitles">subtitles</h3>
+        <h3 class="news-subtitles">${item.data().category}</h3>
         <h2 class="news-heading">${item.data().title}</h2>
-        <p class="news-date">${item.data().date}</p>
+        <p class="news-date">${date}</p>
       </div>
     </div>
   </a>
@@ -73,7 +78,7 @@ function renderPopoular(item) {
 function getPopular() {
   var div = document.getElementById("popular-container");
   db.collection("news")
-    .orderBy("id")
+    .orderBy("date", "desc")
     .limit(3)
     .get()
     .then((querySnapshot) => {

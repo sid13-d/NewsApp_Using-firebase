@@ -6,16 +6,30 @@ const addModalForm = document.querySelector(".add-modal .form");
 
 const editModal = document.querySelector(".edit-modal");
 const editModalForm = document.querySelector(".edit-modal .form");
+
+const addCategoryModal = document.querySelector(".add-category-modal");
+const addCategoryForm = document.querySelector(".add-category-modal .form");
+
+const addVideoModal = document.querySelector(".add-video-modal");
+const addVideoForm = document.querySelector(".add-video-modal .form");
+
+const addMatchModal = document.querySelector(".add-match-modal");
+const addMatchForm = document.querySelector(".add-match-modal .form");
+
 const tableUser = document.querySelector(".user-table");
 //addUser
-const btnAdd = document.querySelector(".btn-addUser");
+const btnAddNews = document.querySelector(".btn-addUser");
+const btnAddCategory = document.querySelector(".addCategory");
+const btnAddVideo = document.querySelector(".addVideo");
+const btnAddMatch = document.querySelector(".addMatch");
+
 let id;
 
 const getNews = () => {
   //get all newws
   tableUser.innerHTML = "";
   db.collection("news")
-    .orderBy("id")
+    .orderBy("date")
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
@@ -81,11 +95,23 @@ const renderNews = (doc) => {
   });
 };
 
-btnAdd.addEventListener("click", display);
-
-function display() {
+btnAddNews.addEventListener("click", () => {
   addModal.classList.add("modal-show");
-}
+  getCategory("category");
+});
+
+btnAddCategory.addEventListener("click", () => {
+  addCategoryModal.classList.add("modal-show");
+});
+
+btnAddVideo.addEventListener("click", () => {
+  addVideoModal.classList.add("modal-show");
+  getCategory("categoryVideo");
+});
+
+btnAddMatch.addEventListener("click", () => {
+  addMatchModal.classList.add("modal-show");
+});
 
 //user click outsde the model
 window.addEventListener("click", (e) => {
@@ -94,6 +120,15 @@ window.addEventListener("click", (e) => {
   }
   if (e.target === editModal) {
     editModal.classList.remove("modal-show");
+  }
+  if (e.target === addCategoryModal) {
+    addCategoryModal.classList.remove("modal-show");
+  }
+  if (e.target === addVideoModal) {
+    addVideoModal.classList.remove("modal-show");
+  }
+  if (e.target === addMatchModal) {
+    addMatchModal.classList.remove("modal-show");
   }
 });
 
@@ -114,12 +149,13 @@ addModalForm.addEventListener("submit", (e) => {
     })
     .then((res) => {
       addToCategory(addModalForm.category.value, res.id);
-      modalWrapper.classList.remove("modal-show");
+      addModal.classList.remove("modal-show");
       alert("News successfully added");
       getNews();
     });
 });
 
+// for adding the news id to the array of the category
 const addToCategory = (category, id) => {
   db.collection("category")
     .doc(category)
@@ -147,8 +183,70 @@ editModal.addEventListener("submit", (e) => {
     });
 });
 
-const getCategory = () => {
-  var div = document.getElementById("category");
+// to add category to firebase
+addCategoryForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  db.collection("category")
+    .doc(addCategoryForm.name.value)
+    .set({
+      id: addCategoryForm.id.value,
+      img_url: addCategoryForm.img_url.value,
+      name: addCategoryForm.name.value,
+      news_id: [],
+      date: new Date(),
+    })
+    .then(() => {
+      addCategoryModal.classList.remove("modal-show");
+      alert("Category successfully added");
+      console.log("added");
+    });
+});
+
+// to addd video to firebase
+addVideoForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let data = {
+    id: addVideoForm.id.value,
+    url: addVideoForm.url.value,
+    category: addVideoForm.categoryVideo.value,
+    date: new Date(),
+  };
+  console.log(data);
+  db.collection("videos")
+    .add(data)
+    .then(() => {
+      addVideoModal.classList.remove("modal-show");
+      alert("Added successfully");
+    });
+});
+
+// to add the match result to firebase
+addMatchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let data = {
+    id: addMatchForm.id.value,
+    team1_name: addMatchForm.team1_name.value,
+    team1_score: addMatchForm.team1_score.value,
+    team1_img: addMatchForm.team1_img.value,
+    team2_name: addMatchForm.team2_name.value,
+    team2_score: addMatchForm.team2_score.value,
+    team2_img: addMatchForm.team2_img.value,
+    desc: addMatchForm.desc.value,
+    date: new Date(),
+  };
+  db.collection("sportsMatch")
+    .add(data)
+    .then(() => {
+      addMatchModal.classList.remove("modal-show");
+      alert("Added successfully");
+    });
+});
+
+// to get the category for the dropdown
+const getCategory = (id) => {
+  var div = document.getElementById(id);
+  div.innerHTML = "";
   db.collection("category")
     .get()
     .then((querySnapshot) => {
@@ -160,4 +258,3 @@ const getCategory = () => {
       });
     });
 };
-getCategory();
