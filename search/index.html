@@ -84,6 +84,19 @@
         border-radius: 10px;
         margin-bottom: 15px;
         box-shadow: 1px 1px 3px darkgray;
+        position: relative;
+        animation-name: example;
+        animation-duration: 1s;
+      }
+
+      @keyframes example {
+        from {
+          /* background-color: red; */
+          top: 100px;
+        }
+        to {
+          top: 0px;
+        }
       }
 
       .inner-element {

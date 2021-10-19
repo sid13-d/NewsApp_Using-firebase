@@ -51,8 +51,9 @@ function getHeadLines() {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        console.log(doc.data());
         container.innerHTML = "";
+        var date = new Date(doc.data().date.seconds * 1000);
+        date = date.toGMTString();
         container.innerHTML = `
           <img
               class="main-news-info-img"
@@ -67,7 +68,7 @@ function getHeadLines() {
                 <div class="main-news-category-container">
                   <span class="news-info-category"> Politics </span>
                   <div>
-                    <span class="date">27/012</span>
+                    <span class="date">${date}</span>
                     <i class="fas fa-map-marker-alt"></i>
                     <span class="location"> ${doc.data().location}</span>
                   </div>
